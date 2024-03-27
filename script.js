@@ -74,5 +74,26 @@ function Gamecontroller(
 
     const getActivePlayer = () => activePlayer;
 
-    return { getActivePlayer };
+    const printNewRound = () => {
+        board.printBoard();
+        console.log(`${getActivePlayer.name}'s turn.`);
+    };
+
+    const playRound = (row, col) => {
+        console.log(`Dropping ${getActivePlayer.name}'s token into ${row} row and ${col} column`);
+
+        board.dropToken(row, col, getActivePlayer().token);
+
+        //adding logic to check for winner
+
+        switchPlayerTurn();
+        printNewRound();
+    };
+
+    printNewRound();
+
+    return {
+        getActivePlayer,
+        playRound,
+    };
 }
