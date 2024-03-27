@@ -29,3 +29,31 @@ function Cell() {
         getValue,
     }
 }
+
+function Gamecontroller(
+    playerOneName = "Player One",
+    playerTwoName = "Player Two"
+) {
+    const board = Gameboard();
+
+    const players = [
+        {
+            name: playerOneName,
+            token: 1,
+        },
+        {
+            name: playerTwoName,
+            token: 2,
+        },
+    ];
+
+    let activePlayer = players[0];
+
+    const switchPlayerTurn = () => {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    };
+
+    const getActivePlayer = () => activePlayer;
+
+    return { getActivePlayer };
+}
