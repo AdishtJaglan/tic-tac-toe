@@ -12,7 +12,20 @@ function Gameboard() {
 
     const getBoard = () => board;
 
-    return { getBoard };
+    const dropToken = (row, col, player) => {
+
+        if (row >= board.length || col >= board.length || row < 0 || col < 0) {
+            return console.log("Invalid Move!");
+        } else {
+            board[row][col].addToken(player);
+            console.log(board[row][col].getValue());
+        }
+    }
+
+    return {
+        getBoard,
+        dropToken,
+    };
 }
 
 function Cell() {
