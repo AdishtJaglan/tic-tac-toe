@@ -12,5 +12,20 @@ function Gameboard() {
 
     const getBoard = () => board;
 
-    return { board };
+    return { getBoard };
+}
+
+function Cell() {
+    let value = 0;
+
+    const addToken = (player) => {
+        value = player;
+    }
+
+    const getValue = () => value;
+
+    return {
+        addToken,
+        getValue,
+    }
 }
