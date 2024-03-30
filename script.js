@@ -45,6 +45,7 @@ const Square = () => {
 
 const gameController = (playerOneName = "Player One", playerTwoName = "Player Two") => {
     const board = boardGame();
+    let count = 0;
     const player = [
         {
             name: playerOneName,
@@ -93,16 +94,32 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         return 0;
     };
 
+    const isGameOver = (count, currentPlayer) => {
+        /* NOTE: checkWinner() must run before second */
+        /* if statement because it is possible to win the */
+        /* game on the last try */
+
+        /* checking for a winner */
+        if (checkWinner()) {
+            return console.log(`${currentPlayer.name} wins!`);
+        }
+
+        /* checking to see if maximum number of turns have been played */
+        if (count === 9) {
+            return console.log("It is a draw!");
+        }
+
+        return;
+    };
+
     const playGame = (row, col) => {
         let currentPlayer = activePlayer;
+        count++;
 
         console.log(`${currentPlayer.name}'s move.`);
         console.log(board.playMove(row, col, currentPlayer.token));
 
-
-        if (checkWinner()) {
-            console.log(`${currentPlayer.name} wins!`);
-        }
+        isGameOver(count, currentPlayer);
 
         if (isInvalidMove === 0) {
             switchActivePlayer();
