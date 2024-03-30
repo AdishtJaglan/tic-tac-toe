@@ -73,10 +73,16 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
             return 1;
         }
 
-        /* checking rows win condition */
+        /* checking row and column win condition */
         for (let i = 0; i < 3; i++) {
             if (
                 gameBoard[i][0] !== 0 && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]
+            ) {
+                return 1;
+            }
+
+            if (
+                gameBoard[0][i] !== 0 && gameBoard[0][i] === gameBoard[1][i] && gameBoard[1][i] === gameBoard[2][i]
             ) {
                 return 1;
             }
