@@ -1,4 +1,4 @@
-function Gameboard() {
+const boardGame = () => {
     const rows = 3;
     const columns = 3;
     const board = [];
@@ -6,56 +6,42 @@ function Gameboard() {
     for (let i = 0; i < rows; i++) {
         board[i] = [];
         for (let j = 0; j < columns; j++) {
-            board[i].push(Cell());
+            board[i].push(Square());
         }
     }
 
     const getBoard = () => board;
 
-    const dropToken = (row, col, player) => {
-
-        if (row >= board.length || col >= board.length || row < 0 || col < 0) {
-            return console.log("Invalid Move!");
-        } else {
-            board[row][col].addToken(player);
-            console.log(board[row][col].getValue());
+    const playMove = (row, col, player) => {
+        if (board[row][col] === 1 || board[row][col] === 2) {
+            console.log("Cell already taken!");
+            return;
         }
-    }
 
-    const printBoard = () => {
-        const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()));
-        console.log(boardWithCellValues);
+        if (row < 0 || col < 0 || row >= 3 || col >= 3) {
+            console.log("Invalid move!");
+        } else {
+            board[row][col] = player;
+        }
+
+        return getBoard();
     };
 
     return {
         getBoard,
-        dropToken,
-        printBoard,
+        playMove,
     };
-}
+};
 
-function Cell() {
+const Square = () => {
     let value = 0;
 
-    const addToken = (player) => {
-        value = player;
-    }
+    return value;
+};
 
-    const getValue = () => value;
-
-    return {
-        addToken,
-        getValue,
-    }
-}
-
-function Gamecontroller(
-    playerOneName = "Player One",
-    playerTwoName = "Player Two"
-) {
-    const board = Gameboard();
-
-    const players = [
+const gameController = (playerOneName = "Player One", playerTwoName = "Player Two") => {
+    const board = boardGame();
+    const player = [
         {
             name: playerOneName,
             token: 1,
@@ -66,34 +52,22 @@ function Gamecontroller(
         },
     ];
 
-    let activePlayer = players[0];
+    let activePlayer = player[0];
 
-    const switchPlayerTurn = () => {
-        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    const switchActivePlayer = () => {
+        activePlayer = activePlayer === player[0] ? player[1] : player[0];
     };
 
-    const getActivePlayer = () => activePlayer;
+    const playGame = (row, col) => {
+        let currentPlayer = activePlayer.token;
 
-    const printNewRound = () => {
-        board.printBoard();
-        console.log(`${getActivePlayer.name}'s turn.`);
+        console.log(`${activePlayer.name}'s move.`);
+        console.log(board.playMove(row, col, currentPlayer));
+
+        switchActivePlayer();
     };
-
-    const playRound = (row, col) => {
-        console.log(`Dropping ${getActivePlayer.name}'s token into ${row} row and ${col} column`);
-
-        board.dropToken(row, col, getActivePlayer().token);
-
-        //adding logic to check for winner
-
-        switchPlayerTurn();
-        printNewRound();
-    };
-
-    printNewRound();
 
     return {
-        getActivePlayer,
-        playRound,
-    };
-}
+        playGame,
+    }
+};
