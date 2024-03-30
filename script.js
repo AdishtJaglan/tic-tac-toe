@@ -62,11 +62,30 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         activePlayer = activePlayer === player[0] ? player[1] : player[0];
     };
 
-    const playGame = (row, col) => {
-        let currentPlayer = activePlayer.token;
+    const checkWinner = () => {
+        const gameBoard = board.getBoard();
 
-        console.log(`${activePlayer.name}'s move.`);
-        console.log(board.playMove(row, col, currentPlayer));
+        /* diagnol win conditiion */
+        if (
+            (gameBoard[0][0] !== 0 && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) ||
+            (gameBoard[0][2] !== 0 && gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0])
+        ) {
+            return 1;
+        }
+
+        return 0;
+    };
+
+    const playGame = (row, col) => {
+        let currentPlayer = activePlayer;
+
+        console.log(`${currentPlayer.name}'s move.`);
+        console.log(board.playMove(row, col, currentPlayer.token));
+
+
+        if (checkWinner()) {
+            console.log(`${currentPlayer.name} wins!`);
+        }
 
         if (isInvalidMove === 0) {
             switchActivePlayer();
