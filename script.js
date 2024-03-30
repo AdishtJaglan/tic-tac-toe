@@ -1,3 +1,5 @@
+let isInvalidMove = 0;
+
 const boardGame = () => {
     const rows = 3;
     const columns = 3;
@@ -15,11 +17,13 @@ const boardGame = () => {
     const playMove = (row, col, player) => {
         if (board[row][col] === 1 || board[row][col] === 2) {
             console.log("Cell already taken!");
+            isInvalidMove++;
             return;
         }
 
         if (row < 0 || col < 0 || row >= 3 || col >= 3) {
             console.log("Invalid move!");
+            isInvalidMove++;
         } else {
             board[row][col] = player;
         }
@@ -64,7 +68,11 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         console.log(`${activePlayer.name}'s move.`);
         console.log(board.playMove(row, col, currentPlayer));
 
-        switchActivePlayer();
+        if (isInvalidMove === 0) {
+            switchActivePlayer();
+        }
+
+        isInvalidMove = 0;
     };
 
     return {
