@@ -133,6 +133,7 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
     return {
         playGame,
         getActivePlayer,
+        checkWinner,
     }
 };
 
@@ -143,15 +144,17 @@ const playTicTacToe = () => {
 
     grid_item.forEach((cell) => {
         cell.addEventListener("click", () => {
-            let column = cell.dataset.column;
-            let row = cell.dataset.row;
+            if (!game.checkWinner()) {
+                let column = cell.dataset.column;
+                let row = cell.dataset.row;
 
-            game.playGame(row, column);
+                game.playGame(row, column);
 
-            if (game.getActivePlayer().token === 1) {
-                cell.textContent = "O";
-            } else {
-                cell.textContent = "X";
+                if (game.getActivePlayer().token === 1) {
+                    cell.textContent = "O";
+                } else {
+                    cell.textContent = "X";
+                }
             }
         });
     });
