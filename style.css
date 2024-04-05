@@ -61,3 +61,12 @@ body {
 .btn:hover {
     background-color: #9a8c98;
 }
+
+.winner-display {
+    border: none;
+    border-radius: 10px;
+    outline: none;
+
+    width: 30%;
+    height: 5%;
+}

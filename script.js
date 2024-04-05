@@ -138,11 +138,11 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
 };
 
 const playTicTacToe = () => {
-    const grid_item = document.querySelectorAll(".grid-item");
+    const gridItem = document.querySelectorAll(".grid-item");
 
     const game = gameController();
 
-    grid_item.forEach((cell) => {
+    gridItem.forEach((cell) => {
         cell.addEventListener("click", () => {
             if (!game.checkWinner() && cell.textContent === "") {
                 let column = cell.dataset.column;
