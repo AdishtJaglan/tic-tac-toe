@@ -141,7 +141,15 @@ const playTicTacToe = () => {
 
     grid_item.forEach((cell) => {
         cell.addEventListener("click", () => {
-            cell.innerHTML = "O";
+            cell.textContent = "O";
         });
     });
 }
+
+const resetBoard = () => {
+    const grid_item = document.querySelectorAll(".grid-item");
+
+    grid_item.forEach((cell) => {
+        cell.textContent = " ";
+    });
+};
