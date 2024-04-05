@@ -144,7 +144,7 @@ const playTicTacToe = () => {
 
     grid_item.forEach((cell) => {
         cell.addEventListener("click", () => {
-            if (!game.checkWinner()) {
+            if (!game.checkWinner() && cell.textContent === "") {
                 let column = cell.dataset.column;
                 let row = cell.dataset.row;
 
