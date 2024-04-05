@@ -146,17 +146,17 @@ const playTicTacToe = () => {
             let column = cell.dataset.column;
             let row = cell.dataset.row;
 
+            game.playGame(row, column);
+
             if (game.getActivePlayer().token === 1) {
                 cell.textContent = "O";
             } else {
                 cell.textContent = "X";
             }
-
-            game.playGame(row, column);
         });
     });
 }
-x
+
 const resetBoard = () => {
     const grid_item = document.querySelectorAll(".grid-item");
 
