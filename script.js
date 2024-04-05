@@ -139,13 +139,24 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
 const playTicTacToe = () => {
     const grid_item = document.querySelectorAll(".grid-item");
 
+    const game = gameController();
+
     grid_item.forEach((cell) => {
         cell.addEventListener("click", () => {
-            cell.textContent = "O";
+            let column = cell.dataset.column;
+            let row = cell.dataset.row;
+
+            if (game.getActivePlayer().token === 1) {
+                cell.textContent = "O";
+            } else {
+                cell.textContent = "X";
+            }
+
+            game.playGame(row, column);
         });
     });
 }
-
+x
 const resetBoard = () => {
     const grid_item = document.querySelectorAll(".grid-item");
 
