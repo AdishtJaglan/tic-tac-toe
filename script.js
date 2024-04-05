@@ -63,6 +63,8 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         activePlayer = activePlayer === player[0] ? player[1] : player[0];
     };
 
+    const getActivePlayer = () => activePlayer;
+
     const checkDiagnolWin = (gameBoard) => {
         return (gameBoard[0][0] !== 0 && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) ||
             (gameBoard[0][2] !== 0 && gameBoard[0][2] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][0]);
@@ -130,5 +132,16 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
 
     return {
         playGame,
+        getActivePlayer,
     }
 };
+
+const playTicTacToe = () => {
+    const grid_item = document.querySelectorAll(".grid-item");
+
+    grid_item.forEach((cell) => {
+        cell.addEventListener("click", () => {
+            cell.innerHTML = "O";
+        });
+    });
+}

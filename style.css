@@ -10,6 +10,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 48px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .grid {
@@ -26,4 +29,29 @@ body {
 
 .grid-item {
     background-color: #c9ada7;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #001219;
+    text-align: center;
+    font-size: 75px;
+}
+
+.btn {
+    width: 20%;
+    height: 5%;
+
+    padding: 8px;
+    border-style: none;
+    border-radius: 10px;
+
+    background-color: #c9ada7;
+    color: #001219;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #9a8c98;
 }
