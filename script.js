@@ -161,9 +161,5 @@ const playTicTacToe = () => {
 }
 
 const resetBoard = () => {
-    const grid_item = document.querySelectorAll(".grid-item");
-
-    grid_item.forEach((cell) => {
-        cell.textContent = " ";
-    });
+    window.location.reload();
 };
