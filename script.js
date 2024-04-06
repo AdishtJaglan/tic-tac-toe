@@ -96,34 +96,13 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         return 0;
     };
 
-    const isGameOver = (count, currentPlayer) => {
-        /* NOTE: checkWinner() must run before second */
-        /* if statement because it is possible to win the */
-        /* game on the last try */
-
-        /* checking for a winner */
-        if (checkWinner()) {
-            return console.log(`${currentPlayer.name} wins!`);
-        }
-
-        /* checking to see if maximum number of turns have been played */
-        if (count === 9) {
-            return console.log("It is a draw!");
-        }
-
-        return;
-    };
-
     const getCount = () => count;
 
     const playGame = (row, col) => {
         let currentPlayer = activePlayer;
         count++;
 
-        console.log(`${currentPlayer.name}'s move.`);
-        console.log(board.playMove(row, col, currentPlayer.token));
-
-        isGameOver(count, currentPlayer);
+        board.playMove(row, col, currentPlayer.token);
 
         if (isInvalidMove === 0) {
             switchActivePlayer();
@@ -142,6 +121,7 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
 
 const playTicTacToe = () => {
     const gridItem = document.querySelectorAll(".grid-item");
+    const winnerDisplay = document.querySelector(".winner-display");
 
     const game = gameController();
 
@@ -158,16 +138,16 @@ const playTicTacToe = () => {
                 } else {
                     cell.textContent = "X";
                 }
-            } else if (game.getCount() === 9 && game.checkWinner()) {
-                const winnerDisplay = document.querySelector(".winner-display");
-
-                winnerDisplay.value = "It is a draw!";
             }
 
+            /* checking winning condition */
             if (game.checkWinner()) {
-                const winnerDisplay = document.querySelector(".winner-display");
+                return winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
+            }
 
-                winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
+            /* checking condition for draw */
+            if (game.getCount() === 9) {
+                return winnerDisplay.value = "It is a draw!";
             }
         });
     });
