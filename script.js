@@ -114,6 +114,8 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         return;
     };
 
+    const getCount = () => count;
+
     const playGame = (row, col) => {
         let currentPlayer = activePlayer;
         count++;
@@ -134,6 +136,7 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         playGame,
         getActivePlayer,
         checkWinner,
+        getCount,
     }
 };
 
@@ -155,6 +158,16 @@ const playTicTacToe = () => {
                 } else {
                     cell.textContent = "X";
                 }
+            } else if (game.getCount() === 9 && game.checkWinner()) {
+                const winnerDisplay = document.querySelector(".winner-display");
+
+                winnerDisplay.value = "It is a draw!";
+            }
+
+            if (game.checkWinner()) {
+                const winnerDisplay = document.querySelector(".winner-display");
+
+                winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
             }
         });
     });
