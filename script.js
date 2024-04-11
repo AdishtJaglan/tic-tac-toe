@@ -117,6 +117,14 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
         checkWinner,
         getCount,
     }
+}
+
+const makeVisible = () => {
+    const elements = document.querySelectorAll(".invisible")
+
+    elements.forEach(element => {
+        element.classList.remove("invisible");
+    });
 };
 
 const playTicTacToe = () => {
@@ -124,6 +132,7 @@ const playTicTacToe = () => {
     const winnerDisplay = document.querySelector(".winner-display");
 
     const game = gameController();
+    makeVisible();
 
     gridItem.forEach((cell) => {
         cell.addEventListener("click", () => {

@@ -9,24 +9,39 @@
 </head>
 
 <body>
-    <h1>Tic-Tac-Toe</h1>
-
-    <input type="text" class="winner-display" readonly>
-
-    <div class="grid">
-        <div class="grid-item" data-row="0" data-column="0"></div>
-        <div class="grid-item" data-row="0" data-column="1"></div>
-        <div class="grid-item" data-row="0" data-column="2"></div>
-        <div class="grid-item" data-row="1" data-column="0"></div>
-        <div class="grid-item" data-row="1" data-column="1"></div>
-        <div class="grid-item" data-row="1" data-column="2"></div>
-        <div class="grid-item" data-row="2" data-column="0"></div>
-        <div class="grid-item" data-row="2" data-column="1"></div>
-        <div class="grid-item" data-row="2" data-column="2"></div>
+    <div class="player_one">
+        <label for="playerOne" class="invisible">player one username</label>
+        <input type="text" id="playerOne" class="invisible">
+        <button onclick="getPlayerOneName()" class="invisible btn-invisible">enter</button>
     </div>
 
-    <button class="btn" onclick="playTicTacToe()">play</button>
-    <button class="btn" onclick="resetBoard()">reset</button>
+
+    <div class="container">
+        <h1>Tic-Tac-Toe</h1>
+
+        <input type="text" class="winner-display" readonly>
+
+        <div class="grid">
+            <div class="grid-item" data-row="0" data-column="0"></div>
+            <div class="grid-item" data-row="0" data-column="1"></div>
+            <div class="grid-item" data-row="0" data-column="2"></div>
+            <div class="grid-item" data-row="1" data-column="0"></div>
+            <div class="grid-item" data-row="1" data-column="1"></div>
+            <div class="grid-item" data-row="1" data-column="2"></div>
+            <div class="grid-item" data-row="2" data-column="0"></div>
+            <div class="grid-item" data-row="2" data-column="1"></div>
+            <div class="grid-item" data-row="2" data-column="2"></div>
+        </div>
+
+        <button class="btn" onclick="playTicTacToe()">play</button>
+        <button class="btn" onclick="resetBoard()">reset</button>
+    </div>
+
+    <div class="player_two">
+        <label for="playerTwo" class="invisible">player two username</label>
+        <input type="text" id="playerTwo" class="invisible">
+        <button onclick="getPlayerTwoName()" class="invisible btn-invisible">enter</button>
+    </div>
 
     <script src="./script.js"></script>
 </body>
