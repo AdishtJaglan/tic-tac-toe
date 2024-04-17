@@ -120,11 +120,34 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
 }
 
 
-const playTicTacToe = () => {
+const getNameAndPlayGame = () => {
+    const form = document.querySelector(".dialog-container form");
+    const dialog = document.querySelector("dialog");
+    let p1Name, p2Name;
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const playerOneName = document.querySelector("#player-one-name");
+        const playeTwoName = document.querySelector("#player-two-name");
+
+        p1Name = playerOneName.value;
+        p2Name = playeTwoName.value;
+
+        console.log("P1 name: ", p1Name);
+        console.log("P2 name: ", p2Name);
+
+        dialog.close();
+
+        playTicTacToe(p1Name, p2Name);
+    });
+};
+
+const playTicTacToe = (p1Name, p2Name) => {
     const gridItem = document.querySelectorAll(".grid-item");
     const winnerDisplay = document.querySelector(".winner-display");
 
-    const game = gameController();
+    const game = gameController(p1Name, p2Name);
 
     gridItem.forEach((cell) => {
         cell.addEventListener("click", () => {
