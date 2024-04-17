@@ -127,12 +127,42 @@ const makeVisible = () => {
     });
 };
 
+const playerOneName = () => {
+    const playerOneInput = document.querySelector("#playerOne");
+    const playerOneButton = document.querySelector(".player_one button");
+    let username;
+
+    playerOneButton.addEventListener("submit", () => {
+        username = playerOneInput.value;
+        playerOneInput.value = "";
+    });
+
+    return {
+        value,
+    }
+};
+
+const playerTwoName = () => {
+    const playerTwoInput = document.querySelector("#playerTwo");
+    const playerTwoButton = document.querySelector(".player_two button");
+    let username;
+
+    playerTwoButton.addEventListener("submit", () => {
+        username = playerTwoInput.value;
+        playerTwoInput.value = "";
+    });
+
+    return {
+        value,
+    }
+};
+
 const playTicTacToe = () => {
     const gridItem = document.querySelectorAll(".grid-item");
     const winnerDisplay = document.querySelector(".winner-display");
 
-    const game = gameController();
     makeVisible();
+    const game = gameController();
 
     gridItem.forEach((cell) => {
         cell.addEventListener("click", () => {
