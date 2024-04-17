@@ -1,4 +1,5 @@
 let isInvalidMove = 0;
+let p1Name, p2Name;
 
 const boardGame = () => {
     const rows = 3;
@@ -119,11 +120,9 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
     }
 }
 
-
 const getNameAndPlayGame = () => {
-    const form = document.querySelector(".dialog-container form");
+    const form = document.querySelector("form");
     const dialog = document.querySelector("dialog");
-    let p1Name, p2Name;
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -179,4 +178,13 @@ const playTicTacToe = (p1Name, p2Name) => {
 
 const resetBoard = () => {
     window.location.reload();
+
+    handleReset();
+};
+
+const handleReset = () => {
+    const dialog = document.querySelector("dialog");
+    dialog.close();
+
+    playTicTacToe(p1Name, p2Name);
 };

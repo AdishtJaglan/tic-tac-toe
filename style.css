@@ -1,5 +1,15 @@
 body {
+    height: 100vh;
+    width: 100%;
+
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
     background-color: #fdf0d5;
     color: #001219;
 
@@ -109,7 +119,7 @@ dialog {
 
     height: 250px;
     width: 200px;
-
+    
     border: none;
     border-radius: 15px;
 
@@ -117,7 +127,9 @@ dialog {
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.788);
+    background-color: rgba(237, 5, 5, 0.287);
+    height: 100vh;
+    width: 100vh;
 }
 
 dialog form {

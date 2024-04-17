@@ -19,24 +19,26 @@
         </form>
     </dialog>
 
-    <div class="container">
-        <h1>Tic-Tac-Toe</h1>
+    <div class="main-container">
+        <div class="container">
+            <h1>Tic-Tac-Toe</h1>
 
-        <input type="text" class="winner-display" readonly>
+            <input type="text" class="winner-display" readonly>
 
-        <div class="grid">
-            <div class="grid-item" data-row="0" data-column="0"></div>
-            <div class="grid-item" data-row="0" data-column="1"></div>
-            <div class="grid-item" data-row="0" data-column="2"></div>
-            <div class="grid-item" data-row="1" data-column="0"></div>
-            <div class="grid-item" data-row="1" data-column="1"></div>
-            <div class="grid-item" data-row="1" data-column="2"></div>
-            <div class="grid-item" data-row="2" data-column="0"></div>
-            <div class="grid-item" data-row="2" data-column="1"></div>
-            <div class="grid-item" data-row="2" data-column="2"></div>
+            <div class="grid">
+                <div class="grid-item" data-row="0" data-column="0"></div>
+                <div class="grid-item" data-row="0" data-column="1"></div>
+                <div class="grid-item" data-row="0" data-column="2"></div>
+                <div class="grid-item" data-row="1" data-column="0"></div>
+                <div class="grid-item" data-row="1" data-column="1"></div>
+                <div class="grid-item" data-row="1" data-column="2"></div>
+                <div class="grid-item" data-row="2" data-column="0"></div>
+                <div class="grid-item" data-row="2" data-column="1"></div>
+                <div class="grid-item" data-row="2" data-column="2"></div>
+            </div>
+
+            <button class="btn" onclick="resetBoard()">reset</button>
         </div>
-
-        <button class="btn" onclick="resetBoard()">reset</button>
     </div>
 
     <script src="./script.js"></script>
