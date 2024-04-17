@@ -119,49 +119,11 @@ const gameController = (playerOneName = "Player One", playerTwoName = "Player Tw
     }
 }
 
-const makeVisible = () => {
-    const elements = document.querySelectorAll(".invisible")
-
-    elements.forEach(element => {
-        element.classList.remove("invisible");
-    });
-};
-
-const playerOneName = () => {
-    const playerOneInput = document.querySelector("#playerOne");
-    const playerOneButton = document.querySelector(".player_one button");
-    let username;
-
-    playerOneButton.addEventListener("submit", () => {
-        username = playerOneInput.value;
-        playerOneInput.value = "";
-    });
-
-    return {
-        value,
-    }
-};
-
-const playerTwoName = () => {
-    const playerTwoInput = document.querySelector("#playerTwo");
-    const playerTwoButton = document.querySelector(".player_two button");
-    let username;
-
-    playerTwoButton.addEventListener("submit", () => {
-        username = playerTwoInput.value;
-        playerTwoInput.value = "";
-    });
-
-    return {
-        value,
-    }
-};
 
 const playTicTacToe = () => {
     const gridItem = document.querySelectorAll(".grid-item");
     const winnerDisplay = document.querySelector(".winner-display");
 
-    makeVisible();
     const game = gameController();
 
     gridItem.forEach((cell) => {

@@ -9,12 +9,17 @@
 </head>
 
 <body>
-    <div class="player_one">
-        <label for="playerOne" class="invisible">player one username</label>
-        <input type="text" id="playerOne" class="invisible">
-        <button onclick="getPlayerOneName()" class="invisible btn-invisible">enter</button>
-    </div>
+    <dialog open>
+        <div class="dialog-container">
+            <form method="dialog">
+                <input type="text" name="player-one-name" id="player-one-name" placeholder="player one name" required>
 
+                <input type="text" name="player-two-name" id="player-two-name" placeholder="player two name" required>
+
+                <button type="submit">enter player names</button>
+            </form>
+        </div>
+    </dialog>
 
     <div class="container">
         <h1>Tic-Tac-Toe</h1>
@@ -35,12 +40,6 @@
 
         <button class="btn" onclick="playTicTacToe()">play</button>
         <button class="btn" onclick="resetBoard()">reset</button>
-    </div>
-
-    <div class="player_two">
-        <label for="playerTwo" class="invisible">player two username</label>
-        <input type="text" id="playerTwo" class="invisible">
-        <button onclick="getPlayerTwoName()" class="invisible btn-invisible">enter</button>
     </div>
 
     <script src="./script.js"></script>
