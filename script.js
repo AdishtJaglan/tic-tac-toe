@@ -162,7 +162,7 @@ const playTicTacToe = (p1Name, p2Name) => {
                 } else {
                     cell.textContent = "X";
                 }
-                
+
                 /* checking winning condition */
                 if (game.checkWinner()) {
                     return winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
@@ -188,6 +188,10 @@ const resetBoard = () => {
 
 const showDialog = () => {
     const dialog = document.querySelector("dialog");
+    const clickedButton = document.querySelector(".button-row button:nth-child(1)");
+
+    clickedButton.setAttribute("disabled", true);
+    clickedButton.textContent = "-->";
 
     dialog.showModal();
 };
