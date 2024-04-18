@@ -1,10 +1,8 @@
 :root {
     --bg-primary: #a3b18a;
     --bg-secondary: #344e41;
-
-    --grid-hover: #9a8c98;
-
-    --text-primary: #001219;
+    --primary-hover: #9a8c98;
+    --text-primary: #dad7cd;
 }
 
 body {
@@ -26,21 +24,28 @@ body {
 
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    background-color: #344e41;
+    justify-content: space-between;
+    background-color: var(--bg-secondary);
 }
 
-.nav p {
+.nav p:nth-child(1) {
     padding: 6px;
     margin-left: 16px;
 
     font-size: 24px;
-    color: #dad7cd;
+    color: var(--text-primary);
+}
+
+.nav p:nth-child(2) {
+    padding: 6px;
+    margin-right: 16px;
+
+    font-size: 16px;
+    color: var(--text-primary);
 }
 
 .main-container {
     background-color: var(--bg-primary);
-    color: var(--text-primary);
 
     height: 100vh;
     width: 100%;
@@ -85,7 +90,7 @@ body {
 }
 
 .grid {
-    background-color: #dad7cd;
+    background-color: var(--text-primary);
 
     height: 450px;
     width: 450px;
@@ -95,7 +100,7 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
     gap: 2px;
 
-    border: 2px solid #dad7cd;
+    border: 2px solid var(--text-primary);
 
     margin: 20px;
 }
@@ -107,13 +112,13 @@ body {
     justify-content: center;
     align-items: center;
 
-    color: #dad7cd;
+    color: var(--text-primary);
 
     font-size: 55px;
 }
 
 .grid-item:hover {
-    background-color: var(--grid-hover);
+    background-color: var(--primary-hover);
 }
 
 .button-row {
@@ -136,15 +141,15 @@ body {
     border-style: none;
     border-radius: 18px;
 
-    color: #dad7cd;
-    background-color: #588157;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
     font-size: 18px;
     font-weight: 600;
     font-family: "Jersey 25", sans-serif;
 }
 
 .btn:hover {
-    background-color: var(--grid-hover);
+    background-color: var(--primary-hover);
 }
 
 .winner-display {
@@ -162,7 +167,7 @@ body {
     font-weight: bold;
     font-family: inherit;
 
-    background-color: #dad7cd;
+    background-color: var(--text-primary);
 }
 
 h1 {
@@ -179,7 +184,7 @@ dialog {
     border: none;
     border-radius: 15px;
 
-    background-color: #a3b18a;
+    background-color: var(--bg-primary);
 }
 
 dialog::backdrop {
@@ -209,7 +214,7 @@ form input {
     height: 15%;
 
     text-align: center;
-    background-color: #dad7cd;
+    background-color: var(--text-primary);
 
     font-family: "Jersey 25", sans-serif;
     font-size: 16px;
@@ -224,12 +229,12 @@ form button {
     height: 15%;
 
     background-color: #588157;
-    color: #dad7cd;
+    color: var(--text-primary);
 
     font-family: "Jersey 25", sans-serif;
     font-size: 16px;
 }
 
 form button:hover {
-    background-color: var(--grid-hover);
+    background-color: var(--primary-hover);
 }
