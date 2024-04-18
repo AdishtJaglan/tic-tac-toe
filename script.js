@@ -1,5 +1,6 @@
 let isInvalidMove = 0;
-let p1Name, p2Name;
+let p1Name = "";
+let p2Name = "";
 
 const boardGame = () => {
     const rows = 3;
@@ -161,30 +162,26 @@ const playTicTacToe = (p1Name, p2Name) => {
                 } else {
                     cell.textContent = "X";
                 }
-            }
-
-            /* checking winning condition */
-            if (game.checkWinner()) {
-                return winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
-            }
-
-            /* checking condition for draw */
-            if (game.getCount() === 9) {
-                return winnerDisplay.value = "It is a draw!";
+                
+                /* checking winning condition */
+                if (game.checkWinner()) {
+                    return winnerDisplay.value = `${game.getActivePlayer().name} wins the game!`;
+                } else if (game.getCount() === 9) {
+                    return winnerDisplay.value = "It is a draw!";
+                }
             }
         });
     });
 }
 
 const resetBoard = () => {
-    window.location.reload();
+    const gridItem = document.querySelectorAll(".grid-item");
+    gridItem.forEach(cell => {
+        cell.textContent = "";
+    });
 
-    handleReset();
-};
-
-const handleReset = () => {
-    const dialog = document.querySelector("dialog");
-    dialog.close();
+    const winnerDisplay = document.querySelector(".winner-display");
+    winnerDisplay.value = "";
 
     playTicTacToe(p1Name, p2Name);
 };
