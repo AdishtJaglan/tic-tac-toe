@@ -188,3 +188,9 @@ const handleReset = () => {
 
     playTicTacToe(p1Name, p2Name);
 };
+
+const showDialog = () => {
+    const dialog = document.querySelector("dialog");
+
+    dialog.showModal();
+};
