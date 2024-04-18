@@ -1,6 +1,6 @@
 :root {
-    --bg-primary: #fdf0d5;
-    --bg-secondary: #c9ada7;
+    --bg-primary: #a3b18a;
+    --bg-secondary: #344e41;
 
     --grid-hover: #9a8c98;
 
@@ -27,6 +27,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-color: #344e41;
 }
 
 .nav p {
@@ -34,6 +35,7 @@ body {
     margin-left: 16px;
 
     font-size: 24px;
+    color: #dad7cd;
 }
 
 .main-container {
@@ -83,7 +85,7 @@ body {
 }
 
 .grid {
-    background-color: var(--text-primary);
+    background-color: #dad7cd;
 
     height: 450px;
     width: 450px;
@@ -93,19 +95,19 @@ body {
     grid-template-rows: 1fr 1fr 1fr;
     gap: 2px;
 
-    border: 2px solid var(--text-primary);
+    border: 2px solid #dad7cd;
 
     margin: 20px;
 }
 
 .grid-item {
-    background-color: var(--bg-secondary);
+    background-color: #588157;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    color: var(--text-primary);
+    color: #dad7cd;
 
     font-size: 55px;
 }
@@ -134,10 +136,11 @@ body {
     border-style: none;
     border-radius: 18px;
 
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    font-size: 14px;
+    color: #dad7cd;
+    background-color: #588157;
+    font-size: 18px;
     font-weight: 600;
+    font-family: "Jersey 25", sans-serif;
 }
 
 .btn:hover {
@@ -146,11 +149,11 @@ body {
 
 .winner-display {
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     outline: none;
 
     width: 30%;
-    height: 5%;
+    height: 7%;
     margin-top: 16px;
 
     cursor: default;
@@ -158,6 +161,8 @@ body {
     font-size: 16px;
     font-weight: bold;
     font-family: inherit;
+
+    background-color: #dad7cd;
 }
 
 h1 {
@@ -168,17 +173,17 @@ dialog {
     grid-column: 2/3;
     grid-row: 1/2;
 
-    height: 250px;
-    width: 200px;
+    height: 350px;
+    width: 300px;
 
     border: none;
     border-radius: 15px;
 
-    background-color: var(--grid-hover);
+    background-color: #a3b18a;
 }
 
 dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 dialog form {
@@ -197,20 +202,34 @@ form input {
     margin: 16px;
 
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     outline: none;
 
     width: 90%;
-    height: 10%;
+    height: 15%;
 
     text-align: center;
+    background-color: #dad7cd;
+
+    font-family: "Jersey 25", sans-serif;
+    font-size: 16px;
 }
 
 form button {
     border: none;
-    border-radius: 12px;
+    border-radius: 20px;
 
-    padding: 8px;
+    padding: 12px;
+    width: 70%;
+    height: 15%;
 
-    background-color: var(--bg-primary);
+    background-color: #588157;
+    color: #dad7cd;
+
+    font-family: "Jersey 25", sans-serif;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: var(--grid-hover);
 }
