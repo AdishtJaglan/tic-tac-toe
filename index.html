@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <div class="nav">
+        <p>tic-tac-toe</p>
+    </div>
+
     <dialog>
         <form method="dialog">
             <input type="text" name="player-one-name" id="player-one-name" placeholder="player one name" required>
@@ -20,26 +24,26 @@
     </dialog>
 
     <div class="main-container">
-        <div class="container">
-            <h1>Tic-Tac-Toe</h1>
+        <div class="container"></div>
+        <input type="text" class="winner-display" readonly>
 
-            <input type="text" class="winner-display" readonly>
+        <div class="grid">
+            <div class="grid-item" data-row="0" data-column="0"></div>
+            <div class="grid-item" data-row="0" data-column="1"></div>
+            <div class="grid-item" data-row="0" data-column="2"></div>
+            <div class="grid-item" data-row="1" data-column="0"></div>
+            <div class="grid-item" data-row="1" data-column="1"></div>
+            <div class="grid-item" data-row="1" data-column="2"></div>
+            <div class="grid-item" data-row="2" data-column="0"></div>
+            <div class="grid-item" data-row="2" data-column="1"></div>
+            <div class="grid-item" data-row="2" data-column="2"></div>
+        </div>
 
-            <div class="grid">
-                <div class="grid-item" data-row="0" data-column="0"></div>
-                <div class="grid-item" data-row="0" data-column="1"></div>
-                <div class="grid-item" data-row="0" data-column="2"></div>
-                <div class="grid-item" data-row="1" data-column="0"></div>
-                <div class="grid-item" data-row="1" data-column="1"></div>
-                <div class="grid-item" data-row="1" data-column="2"></div>
-                <div class="grid-item" data-row="2" data-column="0"></div>
-                <div class="grid-item" data-row="2" data-column="1"></div>
-                <div class="grid-item" data-row="2" data-column="2"></div>
-            </div>
-
+        <div class="button-row">
             <button class="btn" onclick="showDialog()">play</button>
             <button class="btn" onclick="resetBoard()">reset</button>
         </div>
+    </div>
     </div>
 
     <script src="./script.js"></script>
